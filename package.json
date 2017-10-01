@@ -1,7 +1,7 @@
 {
   "name": "generator-latex-resume",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Yeoman generator to build a skeleton resume LaTeX document",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./tests",
     "lint": "./node_modules/.bin/eslint ./generators/**"
@@ -12,6 +12,10 @@
     "latex",
     "resume"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sustenance/generator-latex-resume.git"
+  },
   "author": "Sustenance",
   "license": "MIT",
   "dependencies": {
@@ -22,5 +26,8 @@
     "mocha": "^3.5.3",
     "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.7.0"
+  },
+  "peerDependencies": {
+    "yo": "^2.0.0"
   }
 }
