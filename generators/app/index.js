@@ -6,8 +6,41 @@ module.exports = class extends Generator {
         this.answers = {};
     }
     initializing() {
+
+        this.log("...................................................................");
+        this.log(".             @                                                    ");
+        this.log(".`.@@;``      @     @@@:...@@...:+@@            `.@@@.      :@@;.  ");
+        this.log(".  @@        ;@;    @      @@      @               @@        @     ");
+        this.log(".  @@        :+@    :      @@      :               ;@,      :      ");
+        this.log(".  @@       `  @    `      @@                       @@      :      ");
+        this.log(".  @@       +  @;          @@       `                @@    @       ");
+        this.log(".  @@       .  ;@  .       @@       .                :@:  ;        ");
+        this.log(".  @@      .    @`         @@     ::@@@:::::;@@@:     @@  .        ");
+        this.log(".  @@      @    @@         @@       `@.        @+      @@@         ");
+        this.log(".  @@      .    :@         @@       `@.         @      :@;         ");
+        this.log(".  @@     .@@@@@@@.        @@       `@.         @      `@@         ");
+        this.log(".  @@     @      @@        @@       `@.         :      + @@        ");
+        this.log(".  @@     `   .  .@        @@       `@.     .   .     +  .@;       ");
+        this.log(".  @@    :    ;   @.       @@       `@.     .        ``   @@`      ");
+        this.log(".  @@    +    :   @@       @@       `@.    `.        +     @@      ");
+        this.log(".  @@   :@    .   ;@       @@       `@:,,,+@.       @      .@+     ");
+        this.log(".  @@  ,..,  ;   ,...,     @@       `@.    @.      .        @@`    ");
+        this.log(".  @@        @             @@       `@.     .      +         @@    ");
+        this.log(".  @@      :@@             @@       `@.     .    .@@         @@@   ");
+        this.log(".@@@@@@@@@@@@@          @+++;++@    `@.     `  .+@+++       @++++@ ");
+        this.log(".                                   `@.          ;                 ");
+        this.log(".                                   `@.          .                 ");
+        this.log(".                                   `@.         ,                  ");
+        this.log(".                                   `@.         @                  ");
+        this.log(".                                   .@:       .@@                  ");
+        this.log(".                                 ;@@@@@@@@@@@@@@                  ");
+        this.log(".                                                                  ");
+        this.log(".                                                                  ");
+
+
         this.log("Let's bootstrap a resume using LaTeX");
         this.log("This generator will give you a skeleton LaTex file that you can copy/paste sections to finish before compiling.");
+        this.log("Currently you must manually run the resulting .tex file through a LaTex compiler (such as TexLive or MacTex).");
     }
     prompting() {
         return this.prompt([{
@@ -31,13 +64,14 @@ module.exports = class extends Generator {
             name: "jobTitle",
             message: "What is/was your job title at this employer?"
         }, {
-            type: "input"
+            type: "input",
             name: "jobStartDate",
             message: "When did you start at this job (MM/YYYY)?"
         }, {
             type: "input",
             name: "jobEndDate",
-            message: "When did you quit working at this job (MM/YYYY)(optional)?"
+            message: "When did you quit working at this job (MM/YYYY)(optional)?",
+            default: "Present"
         }, {
             type: "input",
             name: "jobDescription",
@@ -49,7 +83,7 @@ module.exports = class extends Generator {
         }, {
             type: "input",
             name: "schoolAward",
-            message: "What did you earn from that school(ex: Diploma, BS in Computer Science, etc.)?"
+            message: "What did you earn (or are currently earning) from that school(ex: Diploma, BS in Computer Science, etc.)?"
         }, {
             type: "input",
             name: "schoolDescription",
@@ -61,7 +95,8 @@ module.exports = class extends Generator {
         }, {
             type: "input",
             name: "schoolEndDate",
-            message: "When did you finish at this school(MM/YYYY)?"
+            message: "When did you finish at this school(MM/YYYY)?",
+            default: "Present"
         }, {
             type: "input",
             name: "sampleProjectName",
@@ -78,11 +113,13 @@ module.exports = class extends Generator {
             Object.assign(this.answers, answers);
         });
     }
-    configuring() {
-
-    }
+    configuring() {}
     writing() {
-
+        return this.fs.copyTpl(
+            this.templatePath("skeleton.tex"),
+            this.destinationPath("resume_skeleton.tex"),
+            this.answers
+        );
     }
     conflicts() {
 
@@ -91,6 +128,7 @@ module.exports = class extends Generator {
 
     }
     end() {
-        this.log()
+        this.log("Now use a LaTex compiler to compile resume_skeleton.tex");
+        this.log("You can edit the file using the existing sections as examples to add more content");
     }
 };
