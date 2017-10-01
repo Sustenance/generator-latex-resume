@@ -1,6 +1,6 @@
 {
   "name": "generator-latex-resume",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Yeoman generator to build a skeleton resume LaTeX document",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./tests",
