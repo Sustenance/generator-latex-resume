@@ -28,11 +28,18 @@
 	\section*{}
 		\textbf{Professional Experience}\\
 		\noindent\rule{\textwidth}{0.4pt}\\
-		\textbf{<%= jobTitle %>}, \textif{<%= employer %>}
+		\textbf{<%= jobTitle %>}, \textit{<%= employer %>}
 			\hfill
 			<%= jobStartDate %> -- <%= jobEndDate %>
 		\begin{itemize}
 			\item <%= jobDescription %>
+		\end{itemize}
+
+	\section*{}
+		\textbf{Sample Projects}\\
+		\noindent\rule{\textwidth}{0.4pt}
+		\begin{itemize}
+			\item <%= sampleProjectName %>: \href{<%= sampleProjectLocation %>}{<%= sampleProjectLocation %>}
 		\end{itemize}
 
 	\section*{}
