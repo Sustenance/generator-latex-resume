@@ -5,6 +5,7 @@ module.exports = class extends Generator {
         super(args, opts);
         this.answers = {};
     }
+
     initializing() {
 
         this.log("...................................................................");
@@ -42,6 +43,7 @@ module.exports = class extends Generator {
         this.log("This generator will give you a skeleton LaTex file that you can copy/paste sections to finish before compiling.");
         this.log("Currently you must manually run the resulting .tex file through a LaTex compiler (such as TexLive or MacTex).");
     }
+    
     prompting() {
         return this.prompt([{
             type: "input",
@@ -113,7 +115,7 @@ module.exports = class extends Generator {
             Object.assign(this.answers, answers);
         });
     }
-    configuring() {}
+    
     writing() {
         return this.fs.copyTpl(
             this.templatePath("skeleton.tex"),
@@ -121,12 +123,7 @@ module.exports = class extends Generator {
             this.answers
         );
     }
-    conflicts() {
-
-    }
-    install() {
-
-    }
+    
     end() {
         this.log("Now use a LaTex compiler to compile resume_skeleton.tex");
         this.log("You can edit the file using the existing sections as examples to add more content");
