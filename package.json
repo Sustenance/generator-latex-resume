@@ -1,6 +1,6 @@
 {
   "name": "generator-latex-resume",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha ./tests",
