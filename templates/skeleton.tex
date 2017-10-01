@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{comment}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.875in}
+\addtolength{\textheight}{1.75in}
+
+\pagenumbering{gobble}
+
+\begin{document}
+	\begin{center}
+		\textbf{<%= name %>}\\
+		\href{mailto:<%= email %>}{<%= email %>}\\
+		<%= phone %>
+	\end{center}
+
+	\section*{}
+		\textbf{Summary of Qualifications}\\
+		\noindent\rule{\textwidth}{0.4pt}
+		\begin{itemize}
+			\item <%= summaryOfQuals %>
+		\end{itemize}
+
+	\section*{}
+		\textbf{Professional Experience}\\
+		\noindent\rule{\textwidth}{0.4pt}\\
+		\textbf{<%= jobTitle %>}, \textif{<%= employer %>}
+			\hfill
+			<%= jobStartDate %> -- <%= jobEndDate %>
+		\begin{itemize}
+			\item <%= jobDescription %>
+		\end{itemize}
+
+	\section*{}
+		\textbf{Education}\\
+		\noindent\rule{\textwidth}{0.4pt}\\
+		\textbf{<%= schoolName %>}, \textit{<%= schoolAward %>}
+			\hfill
+			<%= schoolStartDate %> -- <%= schoolEndDate %>
+		\begin{itemize}
+			\item <%= schoolDescription %>
+		\end{itemize}
+
+\end{document}
